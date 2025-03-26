@@ -9,7 +9,7 @@
 #include <common/maths.hpp>
 #include <common/camera.hpp>
 #include <common/model.hpp>
-#include <common/light.hpp>
+#include <common/light.hpp> 
 
 // Function prototypes
 void keyboardInput(GLFWwindow *window);
