@@ -99,12 +99,16 @@ int main(void)
 
     // Load models
     Model plane("../assets/plane.obj");
-    Model cube("../assets/cube.obj"); 
+    Model oak_wood("../assets/cube.obj"); 
+    Model oak_plank("../assets/cube.obj");
+    Model glass("../assets/cube.obj");
 
 
     // Load the textures
     plane.addTexture("../assets/grass.jpg", "diffuse");
-    cube.addTexture("../assets/oak_wood.jpg", "diffuse");
+    oak_wood.addTexture("../assets/oak_wood.jpg", "diffuse");
+    oak_plank.addTexture("../assets/oak_plank.jpg", "diffuse");
+    glass.addTexture("../assets/glass.png", "diffuse");  
 
     // this will store different types of objects
     std::vector<Object> objects;
@@ -115,7 +119,7 @@ int main(void)
 
     //plain (grass field)
     object.position = glm::vec3(-2.0f, -0.85f, 0.0f);
-    object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+    object.scale = glm::vec3(20.0f, 1.0f, 20.0f);
     object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
     object.angle = 0.0f;
     object.name = "plane";
@@ -125,7 +129,21 @@ int main(void)
     object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
     object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
     object.angle = 0.0f;
-    object.name = "cube";
+    object.name = "oak_wood";
+    objects.push_back(object);
+
+    object.position = glm::vec3(2.0f, 0.0f, 0.0f);
+    object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+    object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+    object.angle = 0.0f;
+    object.name = "oak_plank";
+    objects.push_back(object);
+
+    object.position = glm::vec3(4.0f, 0.0f, 0.0f);
+    object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+    object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+    object.angle = 0.0f;
+    object.name = "glass";
     objects.push_back(object);
 
     // Render loop
@@ -171,8 +189,14 @@ int main(void)
             if (objects[i].name == "plane")
                 plane.draw(shaderID);
 
-            if (objects[i].name == "cube")
-                cube.draw(shaderID);
+            if (objects[i].name == "oak_wood")
+                oak_wood.draw(shaderID);
+
+            if (objects[i].name == "oak_plank")
+                oak_plank.draw(shaderID);
+
+            if (objects[i].name == "glass")
+                glass.draw(shaderID);
         }
 
 
@@ -215,7 +239,7 @@ void keyboardInput(GLFWwindow* window)
         camera.eye += 5.0f * deltaTime * camera.right;
 
 
-    // left will go down in the y axis
+    // left shift key only will go down in the y axis
     if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) 
         camera.eye -= 5.0f * deltaTime * camera.up;
 
