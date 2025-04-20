@@ -99,25 +99,27 @@ int main(void)
 
     // Load models
     Model teapot("../assets/teapot.obj");
-    Model sphere("../assets/plane.obj");
+    Model plane("../assets/plane.obj");
 
     // Load the textures
     teapot.addTexture("../assets/blue.bmp", "diffuse");
-    sphere.addTexture("../assets/bricks.jpg", "diffuse"); 
+    plane.addTexture("../assets/bricks.jpg", "diffuse");
 
     // this will store different types of objects
     std::vector<Object> objects;
     Object object;
 
 
-    // i will manually adjust the postion and scale as
+    // i will manually adjust the postion and scale
+
+    //plain (grass field)
     object.position = glm::vec3(-2.0f, -0.85f, 0.0f);
     object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
     object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
     object.angle = 0.0f;
     object.name = "plane";
     objects.push_back(object);
-
+    
     object.position = glm::vec3(2.0f, -0.85f, 0.0f);
     object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
     object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -169,7 +171,7 @@ int main(void)
                 teapot.draw(shaderID);
 
             if (objects[i].name == "plane")
-                sphere.draw(shaderID);
+                plane.draw(shaderID);
         }
 
 
@@ -180,7 +182,7 @@ int main(void)
 
     // Cleanup
     teapot.deleteBuffers();
-    sphere.deleteBuffers(); 
+    plane.deleteBuffers();
     glDeleteProgram(shaderID);
 
     // Close OpenGL window and terminate GLFW
