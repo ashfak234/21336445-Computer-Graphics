@@ -78,8 +78,8 @@ int main(void)
     // Enable depth test
     glEnable(GL_DEPTH_TEST);
 
-    // Use back face culling
-    glEnable(GL_CULL_FACE);
+    // DISABLED CULLING
+    glDisable(GL_CULL_FACE);
 
     // Ensure we can capture keyboard inputs
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
@@ -98,12 +98,13 @@ int main(void)
     glUseProgram(shaderID);
 
     // Load models
-    Model teapot("../assets/teapot.obj");
     Model plane("../assets/plane.obj");
+    Model cube("../assets/cube.obj"); 
+
 
     // Load the textures
-    teapot.addTexture("../assets/blue.bmp", "diffuse");
-    plane.addTexture("../assets/bricks.jpg", "diffuse");
+    plane.addTexture("../assets/grass.jpg", "diffuse");
+    cube.addTexture("../assets/oak_wood.jpg", "diffuse");
 
     // this will store different types of objects
     std::vector<Object> objects;
@@ -119,13 +120,13 @@ int main(void)
     object.angle = 0.0f;
     object.name = "plane";
     objects.push_back(object);
-    
-    object.position = glm::vec3(2.0f, -0.85f, 0.0f);
+
+    object.position = glm::vec3(0.0f, 0.0f, 0.0f);
     object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
     object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
     object.angle = 0.0f;
-    object.name = "teapot";
-    objects.push_back(object);  
+    object.name = "cube";
+    objects.push_back(object);
 
     // Render loop
     while (!glfwWindowShouldClose(window))
@@ -166,12 +167,12 @@ int main(void)
             glUniformMatrix4fv(glGetUniformLocation(shaderID, "MVP"), 1, GL_FALSE, &MVP[0][0]);
             glUniformMatrix4fv(glGetUniformLocation(shaderID, "MV"), 1, GL_FALSE, &MV[0][0]);
 
-            // Draw the model
-            if (objects[i].name == "teapot")
-                teapot.draw(shaderID);
 
             if (objects[i].name == "plane")
                 plane.draw(shaderID);
+
+            if (objects[i].name == "cube")
+                cube.draw(shaderID);
         }
 
 
@@ -181,7 +182,7 @@ int main(void)
     }
 
     // Cleanup
-    teapot.deleteBuffers();
+    
     plane.deleteBuffers();
     glDeleteProgram(shaderID);
 
