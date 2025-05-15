@@ -131,9 +131,7 @@ int main(void)
     object.name = "plane";
     objects.push_back(object);
 
-
     //front part of the house
-    //i will first individually put the blocks without the use of loops on the front part of the house
     object.position = glm::vec3(0.0f, 2.0f, 0.0f);
     object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
     object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -149,16 +147,12 @@ int main(void)
     objects.push_back(object);
 
  
-
-
-
-    object.position = glm::vec3(-4.0f, -0.0f, -0.0f);
+    object.position = glm::vec3(-2.0f, 0.0f, 0.0f);
     object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
     object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
     object.angle = 0.0f;
-    object.name = "oak_wood";
+    object.name = "oak_plank";
     objects.push_back(object);
-
 
     object.position = glm::vec3(2.0f, 0.0f, 0.0f);
     object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
@@ -167,12 +161,214 @@ int main(void)
     object.name = "oak_plank";
     objects.push_back(object);
 
-    object.position = glm::vec3(4.0f, 0.0f, 0.0f);
+    object.position = glm::vec3(2.0f, 4.0f, 0.0f);
+    object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+    object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+    object.angle = 0.0f;
+    object.name = "oak_plank";
+    objects.push_back(object);
+
+    object.position = glm::vec3(0.0f, 4.0f, 0.0f);
+    object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+    object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+    object.angle = 0.0f;
+    object.name = "oak_plank";
+    objects.push_back(object);
+
+    object.position = glm::vec3(-2.0f, 4.0f, 0.0f);
+    object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+    object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+    object.angle = 0.0f;
+    object.name = "oak_plank";
+    objects.push_back(object);
+
+    object.position = glm::vec3(-2.0f, 2.0f, 0.0f);
     object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
     object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
     object.angle = 0.0f;
     object.name = "glass";
     objects.push_back(object);
+
+    object.position = glm::vec3(2.0f, 2.0f, 0.0f);
+    object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+    object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+    object.angle = 0.0f;
+    object.name = "glass";
+    objects.push_back(object);
+
+    
+    object.position = glm::vec3(0.0f, 8.0f, -4.0f);
+    object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+    object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+    object.angle = 0.0f;
+    object.name = "oak_plank";
+    objects.push_back(object);
+
+    float x = 0.0f;
+
+    int count = 0;
+
+    while (count < 3) {
+
+        // four oak wood postions (pillars)
+        object.position = glm::vec3(-4.0f, x, 0.0f); // front left
+        object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+        object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+        object.angle = 0.0f;
+        object.name = "oak_wood";
+        objects.push_back(object);
+
+        object.position = glm::vec3(4.0f, x, 0.0f); // front right
+        object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+        object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+        object.angle = 0.0f;
+        object.name = "oak_wood";
+        objects.push_back(object);
+
+        object.position = glm::vec3(4.0f, x, -8.0f); // back right
+        object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+        object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+        object.angle = 0.0f;
+        object.name = "oak_wood";
+        objects.push_back(object);
+
+        object.position = glm::vec3(-4.0f, x, -8.0f); // back left
+        object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+        object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+        object.angle = 0.0f;
+        object.name = "oak_wood";
+        objects.push_back(object);
+        
+        //left side of house
+        object.position = glm::vec3(-4.0f, 0.0f, -2.0f-x);
+        object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+        object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+        object.angle = 0.0f;
+        object.name = "oak_plank";
+        objects.push_back(object);
+
+        object.position = glm::vec3(-4.0f, 2.0f, -2.0f - x);
+        object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+        object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+        object.angle = 0.0f;
+        object.name = "glass";
+        objects.push_back(object);
+
+        object.position = glm::vec3(-4.0f, 4.0f, -2.0f - x);
+        object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+        object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+        object.angle = 0.0f;
+        object.name = "oak_plank";
+        objects.push_back(object);
+
+        // right side of house
+
+        object.position = glm::vec3(4.0f, 0.0f, -2.0f - x);
+        object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+        object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+        object.angle = 0.0f;
+        object.name = "oak_plank";
+        objects.push_back(object);
+
+        object.position = glm::vec3(4.0f, 2.0f, -2.0f - x);
+        object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+        object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+        object.angle = 0.0f;
+        object.name = "glass";
+        objects.push_back(object);
+
+        object.position = glm::vec3(4.0f, 4.0f, -2.0f - x);
+        object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+        object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+        object.angle = 0.0f;
+        object.name = "oak_plank";
+        objects.push_back(object);
+
+
+        // back side of house
+
+        object.position = glm::vec3(-2.0f + x, 0.0f, -8.0f);
+        object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+        object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+        object.angle = 0.0f;
+        object.name = "oak_plank";
+        objects.push_back(object);
+
+        object.position = glm::vec3(-2.0f + x, 2.0f, -8.0f);
+        object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+        object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+        object.angle = 0.0f;
+        object.name = "glass";
+        objects.push_back(object);
+
+        object.position = glm::vec3(-2.0f + x, 4.0f, -8.0f);
+        object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+        object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+        object.angle = 0.0f;
+        object.name = "oak_plank";
+        objects.push_back(object);
+
+        //top 
+
+
+        object.position = glm::vec3(-2.0f + x, 6.0f, -6.0f);
+        object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+        object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+        object.angle = 0.0f;
+        object.name = "oak_plank";
+        objects.push_back(object);
+
+        object.position = glm::vec3(-2.0f + x, 6.0f, -4.0f);
+        object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+        object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+        object.angle = 0.0f;
+        object.name = "oak_plank";
+        objects.push_back(object);
+
+        object.position = glm::vec3(-2.0f + x, 6.0f, -2.0f);
+        object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+        object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+        object.angle = 0.0f;
+        object.name = "oak_plank";
+        objects.push_back(object);
+
+        // adds a block
+        x += 2.0f;
+        count++; 
+    }
+
+
+
+    //object.position = glm::vec3(-4.0f, 0.0f, -0.0f);
+    //object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+    //object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+    //object.angle = 0.0f;
+    //object.name = "oak_wood";
+    //objects.push_back(object);
+
+    //object.position = glm::vec3(4.0f, 0.0f, -0.0f);
+    //object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+    //object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+    //object.angle = 0.0f;
+    //object.name = "oak_wood";
+    //objects.push_back(object);
+
+    //object.position = glm::vec3(4.0f, 0.0f, -8.0f);
+    //object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+    //object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+    //object.angle = 0.0f;
+    //object.name = "oak_wood";
+    //objects.push_back(object);
+
+    //object.position = glm::vec3(4.0f, 0.0f, -8.0f);
+    //object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+    //object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+    //object.angle = 0.0f;
+    //object.name = "oak_wood";
+    //objects.push_back(object);
+
+
+
 
     // Render loop
     while (!glfwWindowShouldClose(window))
