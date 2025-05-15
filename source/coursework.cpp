@@ -31,6 +31,8 @@ struct Object
     std::string name;
 };
 
+
+
 int main(void)
 {
     // =========================================================================
@@ -102,35 +104,61 @@ int main(void)
     Model oak_wood("../assets/cube.obj"); 
     Model oak_plank("../assets/cube.obj");
     Model glass("../assets/cube.obj");
+    Model door_top("../assets/cube.obj");
+    Model door_bottom("../assets/cube.obj"); 
 
-
+    
     // Load the textures
     plane.addTexture("../assets/grass.jpg", "diffuse");
     oak_wood.addTexture("../assets/oak_wood.jpg", "diffuse");
     oak_plank.addTexture("../assets/oak_plank.jpg", "diffuse");
     glass.addTexture("../assets/glass.png", "diffuse");  
+    door_top.addTexture("../assets/door_top.png", "diffuse");
+    door_bottom.addTexture("../assets/door_bottom.png", "diffuse");
+
 
     // this will store different types of objects
     std::vector<Object> objects;
     Object object;
 
-
-    // i will manually adjust the postion and scale
+    // i will manually adjust the block postion and scale
 
     //plain (grass field)
-    object.position = glm::vec3(-2.0f, -0.85f, 0.0f);
+    object.position = glm::vec3(-2.0f, -1.0f, 0.0f);
     object.scale = glm::vec3(20.0f, 1.0f, 20.0f);
     object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
     object.angle = 0.0f;
     object.name = "plane";
     objects.push_back(object);
 
+
+    //front part of the house
+    //i will first individually put the blocks without the use of loops on the front part of the house
+    object.position = glm::vec3(0.0f, 2.0f, 0.0f);
+    object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+    object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+    object.angle = 0.0f;
+    object.name = "door_top";
+    objects.push_back(object);
+
     object.position = glm::vec3(0.0f, 0.0f, 0.0f);
+    object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+    object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+    object.angle = 0.0f;
+    object.name = "door_bottom";
+    objects.push_back(object);
+
+ 
+
+
+
+    object.position = glm::vec3(-4.0f, -0.0f, -0.0f);
     object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
     object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
     object.angle = 0.0f;
     object.name = "oak_wood";
     objects.push_back(object);
+
 
     object.position = glm::vec3(2.0f, 0.0f, 0.0f);
     object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
@@ -169,6 +197,7 @@ int main(void)
         // Activate shader
         glUseProgram(shaderID);
 
+ 
 
         // Loop through objects
         for (unsigned int i = 0; i < static_cast<unsigned int>(objects.size()); i++)
@@ -197,7 +226,14 @@ int main(void)
 
             if (objects[i].name == "glass")
                 glass.draw(shaderID);
+
+            if (objects[i].name == "door_top")
+                door_top.draw(shaderID);
+
+            if (objects[i].name == "door_bottom")
+                door_bottom.draw(shaderID);
         }
+
 
 
         // Swap buffers
@@ -208,6 +244,9 @@ int main(void)
     // Cleanup
     
     plane.deleteBuffers();
+    oak_wood.deleteBuffers();
+    oak_plank.deleteBuffers();
+    glass.deleteBuffers();
     glDeleteProgram(shaderID);
 
     // Close OpenGL window and terminate GLFW
@@ -225,28 +264,28 @@ void keyboardInput(GLFWwindow* window)
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 
-    // Move the camera using WSAD keys
+    // Move the camera using WASD keys
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        camera.eye += 5.0f * deltaTime * camera.front;
+        camera.eye += 10.0f * deltaTime * camera.front;
 
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        camera.eye -= 5.0f * deltaTime * camera.front;
+        camera.eye -= 10.0f * deltaTime * camera.front;
 
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        camera.eye -= 5.0f * deltaTime * camera.right;
+        camera.eye -= 10.0f * deltaTime * camera.right;
 
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        camera.eye += 5.0f * deltaTime * camera.right;
+        camera.eye += 10.0f * deltaTime * camera.right;
 
 
     // left shift key only will go down in the y axis
     if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) 
-        camera.eye -= 5.0f * deltaTime * camera.up;
+        camera.eye -= 10.0f * deltaTime * camera.up;
 
 
     // go up in the y axis
     if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
-        camera.eye += 5.0f * deltaTime * camera.up;  
+        camera.eye += 10.0f * deltaTime * camera.up;  
 }
 
 void mouseInput(GLFWwindow* window)
