@@ -462,26 +462,26 @@ void keyboardInput(GLFWwindow* window)
 
     // Move the camera using WASD keys
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        camera.eye += 10.0f * deltaTime * camera.front;
+        camera.eye += 15.0f * deltaTime * camera.front;
 
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        camera.eye -= 10.0f * deltaTime * camera.front;
+        camera.eye -= 15.0f * deltaTime * camera.front;
 
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        camera.eye -= 10.0f * deltaTime * camera.right;
+        camera.eye -= 15.0f * deltaTime * camera.right;
 
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        camera.eye += 10.0f * deltaTime * camera.right;
+        camera.eye += 15.0f * deltaTime * camera.right;
 
 
     // left shift key only will go down in the y axis
     if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) 
-        camera.eye -= 10.0f * deltaTime * camera.up;
+        camera.eye -= 15.0f * deltaTime * camera.up;
 
 
     // go up in the y axis
     if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
-        camera.eye += 10.0f * deltaTime * camera.up;  
+        camera.eye += 15.0f * deltaTime * camera.up;  
 }
 
 void mouseInput(GLFWwindow* window)
