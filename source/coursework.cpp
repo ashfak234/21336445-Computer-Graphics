@@ -201,7 +201,7 @@ int main(void)
     object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
     object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
     object.angle = 0.0f;
-    object.name = "oak_plank";
+    object.name = "oak_wood";
     objects.push_back(object);
 
     float x = 0.0f;
@@ -315,21 +315,21 @@ int main(void)
         object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
         object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
         object.angle = 0.0f;
-        object.name = "oak_plank";
+        object.name = "oak_wood";
         objects.push_back(object);
 
         object.position = glm::vec3(-2.0f + x, 6.0f, -4.0f);
         object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
         object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
         object.angle = 0.0f;
-        object.name = "oak_plank";
+        object.name = "oak_wood";
         objects.push_back(object);
 
         object.position = glm::vec3(-2.0f + x, 6.0f, -2.0f);
         object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
         object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
         object.angle = 0.0f;
-        object.name = "oak_plank";
+        object.name = "oak_wood";
         objects.push_back(object);
 
         // adds a block
