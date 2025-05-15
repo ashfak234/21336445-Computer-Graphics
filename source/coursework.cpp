@@ -442,8 +442,10 @@ int main(void)
     plane.deleteBuffers();
     oak_wood.deleteBuffers();
     oak_plank.deleteBuffers();
-    glass.deleteBuffers();
-    glDeleteProgram(shaderID);
+    glass.deleteBuffers(); 
+    door_top.deleteBuffers(); 
+    door_bottom.deleteBuffers(); 
+    glDeleteProgram(shaderID); 
 
     // Close OpenGL window and terminate GLFW
     glfwTerminate();
